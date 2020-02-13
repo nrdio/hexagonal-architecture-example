@@ -1,0 +1,20 @@
+base:
+  uri: http://localhost:8085/
+
+spring:
+  data:
+    mongodb:
+      database: payment
+  kafka:
+    producer:
+    consumer:
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: earliest
+      group-id: test
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: com.nrdio.payments.infrastructure.persistance.entity
+topic:
+  payment: payment.t
